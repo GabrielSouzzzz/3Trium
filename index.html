@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3Trium | Desenvolvimento Web de Alto Nível</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    <style>
+        :root {
+            --primary: #7c3aed;
+            --primary-dark: #6d28d9;
+            --text-main: #111827;
+        }
+        
+        body { font-family: 'Inter', sans-serif; overflow-x: hidden; color: var(--text-main); scroll-behavior: smooth; }
+
+        .gradient-brand {
+            background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #7c3aed, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-link { position: relative; color: #e0e7ff; transition: color 0.3s; }
+        .nav-link::after {
+            content: ''; position: absolute; width: 0; height: 2px;
+            bottom: -4px; left: 0; background-color: #a855f7;
+            transition: width 0.3s;
+        }
+        .nav-link:hover { color: white; }
+        .nav-link:hover::after { width: 100%; }
+
+        .swiper { width: 100%; height: 500px; border-radius: 2rem; margin-bottom: 2rem; }
+        .swiper-slide { 
+            display: flex; align-items: center; overflow: hidden; position: relative;
+        }
+        .slide-content-box {
+            position: relative; z-index: 10; padding-left: 8%; color: white; max-width: 650px;
+        }
+        .swiper-button-next, .swiper-button-prev {
+            color: white !important; background: rgba(0,0,0,0.2);
+            width: 50px; height: 50px; border-radius: 50%; backdrop-filter: blur(4px);
+        }
+
+        /* Ajuste dos cards com contorno preto */
+        .card-trium {
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border: 2px solid #000000; /* Contorno preto */
+        }
+        .card-trium:hover {
+            transform: translateY(-12px);
+            box-shadow: 10px 10px 0px 0px #000000; /* Efeito de sombra sólida preta no hover */
+        }
+
+        .btn-dynamic-purple {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--primary-dark);
+            color: var(--primary-dark);
+            font-weight: 700;
+            border-radius: 0.75rem;
+            padding: 1rem 2.5rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            background: transparent;
+            z-index: 1;
+        }
+
+        .btn-dynamic-purple::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background-color: var(--primary-dark);
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            transition: all 0.5s ease-out;
+            z-index: -1;
+            opacity: 0;
+        }
+
+        .btn-dynamic-purple:hover {
+            color: #ffffff;
+            box-shadow: 0 10px 25px -5px rgba(109, 40, 217, 0.4);
+            transform: translateY(-3px);
+        }
+
+        .btn-dynamic-purple:hover::before {
+            width: 300%;
+            height: 300%;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-white">
+
+    <header class="bg-[#1e1b4b] sticky top-0 z-50 border-b border-purple-900 shadow-2xl">
+        <div class="container mx-auto px-6 md:px-12 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="logo-branca.png" alt="3Trium Logo" class="h-16 md:h-20 w-auto object-contain brightness-110">
+            </div>
+            <nav class="hidden md:flex items-center space-x-10">
+                <a href="#inicio" class="nav-link font-medium">Início</a>
+                <a href="#servicos" class="nav-link font-medium">Serviços</a>
+                <a href="#por-que" class="nav-link font-medium">Diferencial</a>
+                <a href="https://wa.me/5511926823398" target="_blank" class="bg-purple-600 text-white px-7 py-3 rounded-full font-bold hover:bg-purple-700 transition shadow-lg shadow-purple-900/50">Orçamento</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="pt-10 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="swiper mySwiper shadow-2xl">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide bg-gray-900">
+                        <div class="slide-content-box">
+                            <h2 class="text-4xl md:text-6xl font-black mb-4">Sua Empresa em Outro Nível</h2>
+                            <p class="text-xl mb-8 opacity-90">Design de elite e engenharia web para marcas que buscam liderança.</p>
+                            <a href="#servicos" class="bg-white text-purple-700 px-8 py-4 rounded-xl font-bold hover:scale-105 transition">Conhecer Soluções</a>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=2026" class="absolute inset-0 w-full h-full object-cover opacity-40">
+                    </div>
+                    <div class="swiper-slide gradient-brand">
+                        <div class="slide-content-box">
+                            <h2 class="text-4xl md:text-6xl font-black mb-4">Performance e Velocidade</h2>
+                            <p class="text-xl mb-8 opacity-90">Sites otimizados para converter visitantes em clientes reais.</p>
+                            <a href="https://wa.me/5511926823398" class="bg-purple-900 text-white px-8 py-4 rounded-xl font-bold hover:scale-105 transition">Solicitar Projeto</a>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=2070" class="absolute inset-0 w-full h-full object-cover opacity-20">
+                    </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="inicio" class="min-h-[85vh] flex items-center bg-purple-400 border-y border-purple-100">
+        <div class="container mx-auto px-6 md:px-12 py-16 flex flex-col md:flex-row items-center">
+            <div class="md:w-3/5 text-left md:pr-16" data-aos="fade-up" data-aos-duration="1000">
+                <span class="inline-block bg-purple-50 text-purple-600 font-semibold px-4 py-1.5 rounded-full text-sm mb-5">Desenvolvimento Web de Elite</span>
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight text-gray-950 text-left">
+                    Sua visão digital,<span class="text-gradient"> executada com perfeição</span>.
+                </h1>
+                <p class="mt-8 text-xl text-gray-700 leading-relaxed max-w-2xl text-left">
+                    A 3Trium não apenas cria sites; desenvolvemos soluções web de alta performance que geram resultados, autoridade e conversão para o seu negócio.
+                </p>
+                <div class="mt-12 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 items-center">
+                    <a href="#servicos" class="px-10 py-4 gradient-brand text-white font-bold rounded-xl hover:opacity-95 transition shadow-xl shadow-purple-300 flex items-center justify-center">Nossos Serviços</a>
+                    <a href="#por-que" class="btn-dynamic-purple whitespace-nowrap">
+                        O Diferencial 3Trium →
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-2/5 mt-20 md:mt-0 relative flex justify-center" data-aos="fade-left" data-aos-delay="300" data-aos-duration="1000">
+                <div class="relative w-full max-sm">
+                    <div class="absolute -top-12 -left-12 w-80 h-80 bg-purple-100 rounded-full mix-blend-multiply filter blur-3xl opacity-60"></div>
+                    <img src="logo-3trium.jpeg" alt="3Trium Showcase" class="relative rounded-3xl shadow-2xl shadow-gray-200 border-[10px] border-white z-10">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicos" class="py-28 bg-white">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center mb-24" data-aos="fade-up">
+                <span class="text-purple-600 font-bold tracking-wide uppercase text-sm">O que fazemos</span>
+                <h2 class="text-4xl md:text-5xl font-extrabold text-gray-950 mt-3 max-w-2xl mx-auto">Soluções Completas para sua Presença Digital</h2>
+                <div class="h-1.5 w-24 gradient-brand mx-auto mt-6 rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="bg-white p-10 rounded-[2rem] card-trium" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 gradient-brand rounded-2xl flex items-center justify-center text-white mb-8">
+                        <i class="fas fa-desktop text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-5 text-gray-950">Sites Institucionais</h3>
+                    <p class="text-gray-700 leading-relaxed mb-8">Sites modernos, responsivos e otimizados para SEO que transmitem credibilidade instantânea.</p>
+                    <a href="https://wa.me/5511926823398" target="_blank" class="text-purple-600 font-bold flex items-center hover:gap-2 transition-all">Solicitar Orçamento <i class="fas fa-arrow-right ml-2 text-sm"></i></a>
+                </div>
+
+                <div class="bg-white p-10 rounded-[2rem] card-trium" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 gradient-brand rounded-2xl flex items-center justify-center text-white mb-8">
+                        <i class="fas fa-rocket text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-5 text-gray-950">Landing Pages</h3>
+                    <p class="text-gray-700 leading-relaxed mb-8">Páginas de alta conversão focadas em campanhas específicas e captura de leads qualificados.</p>
+                    <a href="https://wa.me/5511926823398" target="_blank" class="text-purple-600 font-bold flex items-center hover:gap-2 transition-all">Impulsionar Vendas <i class="fas fa-arrow-right ml-2 text-sm"></i></a>
+                </div>
+
+                <div class="bg-white p-10 rounded-[2rem] card-trium" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-16 h-16 gradient-brand rounded-2xl flex items-center justify-center text-white mb-8">
+                        <i class="fas fa-code text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-5 text-gray-950">Sistemas Web</h3>
+                    <p class="text-gray-700 leading-relaxed mb-8">Plataformas, dashboards e automações sob medida para otimizar a operação da sua empresa.</p>
+                    <a href="https://wa.me/5511926823398" target="_blank" class="text-purple-600 font-bold flex items-center hover:gap-2 transition-all">Falar com Especialista <i class="fas fa-arrow-right ml-2 text-sm"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="por-que" class="py-28 bg-purple-50 border-t border-purple-100">
+        <div class="container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center gap-16">
+            <div class="md:w-1/2" data-aos="fade-right">
+                <div class="relative">
+                    <div class="absolute -top-10 -left-10 w-32 h-32 bg-purple-200 rounded-full mix-blend-multiply filter blur-2xl opacity-70 animate-pulse"></div>
+                    <div class="relative bg-white p-2 rounded-[3rem] shadow-2xl overflow-hidden border border-purple-100">
+                        <div class="w-full aspect-video rounded-[2.5rem] overflow-hidden bg-gray-900">
+                            <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                                <source src="video-3trium.mp4" type="video/mp4">
+                                Seu navegador não suporta vídeos.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="md:w-1/2" data-aos="fade-left">
+                <span class="text-purple-600 font-bold tracking-widest uppercase text-sm mb-4 block">Diferencial 3Trium</span>
+                <h2 class="text-4xl md:text-5xl font-extrabold text-gray-950 mb-10 leading-tight text-left">Onde a Tecnologia Encontra o Design?</h2>
+                
+                <div class="space-y-10">
+                    <div class="flex items-start group">
+                        <div class="flex-shrink-0 w-14 h-14 rounded-2xl gradient-brand text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition duration-300">
+                            <i class="fas fa-bolt text-xl"></i>
+                        </div>
+                        <div class="ml-6">
+                            <h4 class="text-xl font-bold text-gray-950 group-hover:text-purple-700 transition text-left">Performance Imbatível</h4>
+                            <p class="text-gray-600 mt-2 leading-relaxed text-left">Desenvolvemos códigos leves que garantem carregamento em milissegundos.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start group">
+                        <div class="flex-shrink-0 w-14 h-14 rounded-2xl bg-white text-purple-600 flex items-center justify-center shadow-md border border-purple-100 group-hover:scale-110 transition duration-300">
+                            <i class="fas fa-fingerprint text-xl"></i>
+                        </div>
+                        <div class="ml-6">
+                            <h4 class="text-xl font-bold text-gray-950 group-hover:text-purple-700 transition text-left">Design Exclusivo</h4>
+                            <p class="text-gray-600 mt-2 leading-relaxed text-left">Nada de templates prontos. Cada pixel é planejado para sua identidade visual.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 gradient-brand text-white text-center" data-aos="zoom-in">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="text-4xl md:text-5xl font-extrabold leading-tight text-center">Pronto para dominar o seu mercado digital?</h2>
+            <div class="mt-12 flex flex-col items-center">
+                <a href="https://wa.me/5511926823398" target="_blank" class="inline-flex items-center px-12 py-5 bg-white text-purple-700 font-bold rounded-2xl hover:bg-gray-50 transition shadow-2xl shadow-purple-800/30 text-lg">
+                    <i class="fab fa-whatsapp mr-3 text-xl"></i> Solicitar meu Site Agora
+                </a>
+                <p class="mt-6 text-sm md:text-base opacity-80 font-medium text-center">
+                    Projetos exclusivos com entrega em tempo recorde e suporte especializado.
+                    <span class="block mt-1 text-xs opacity-60 italic">*Consultoria gratuita inclusa no primeiro contato.</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-950 text-gray-400 py-16 text-center border-t border-gray-800">
+        <div class="container mx-auto px-6">
+            <img src="logo-sem-fundo.png" alt="3Trium" class="h-12 mx-auto mb-8 brightness-110">
+            <p class="text-sm opacity-60 text-center">© 2026 3Trium - Criação de Sites & Web. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            loop: true,
+            autoplay: { delay: 5000, disableOnInteraction: false },
+            pagination: { el: ".swiper-pagination", clickable: true },
+            navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+        });
+        AOS.init({ duration: 800, once: true });
+    </script>
+</body>
+</html>

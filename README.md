@@ -26,4 +26,4 @@ Landing page institucional desenvolvida para a **3Trium**, focada em apresentar 
 
 1. Clone o repositório:
    ```bash
-   git clone [   git clone [[https://github.com/SEU-USUARIO/nome-do-repositorio.git](https://github.com/GabrielSouzzzz/3Trium)]
+   git clone [https://github.com/GabrielSouzzzz/3Trium.git](https://github.com/GabrielSouzzzz/3Trium.git)
